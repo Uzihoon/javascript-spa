@@ -10,8 +10,8 @@ export default class ViewController {
     this.mode = this.store.getState('mode');
     this.template = null;
 
-    this.EnrollmentController = new EnrollmentController();
-    this.ExecutionController = new ExecutionController();
+    this.EnrollmentController = new EnrollmentController(this.store);
+    this.ExecutionController = new ExecutionController(this.store);
   }
 
   checkModeChange(state) {

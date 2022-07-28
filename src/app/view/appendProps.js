@@ -10,7 +10,7 @@ export default function appendProps(element, props) {
     const isEvent = eventList.includes(key);
 
     if (isEvent && isFunction(value)) {
-      element.addEventListner(key, value);
+      element.addEventListener(key, value);
     } else {
       element.setAttribute(key, value);
     }

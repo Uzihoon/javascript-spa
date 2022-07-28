@@ -5,7 +5,7 @@ export default class Store {
       mode: 'enrollment',
       planList: [{ title: 'Basic daily plan', id: 'basic' }],
       todoList: { basic: [{ hour: 1, min: 30, title: 'English', id: 'eng' }] },
-      activePlan: null
+      activeId: 'basic'
     };
   }
 
@@ -16,5 +16,9 @@ export default class Store {
 
   getState(key) {
     return Object.freeze(this.state[key]);
+  }
+
+  getTodoList(id) {
+    return Object.freeze(this.getState('todoList')[id]) || [];
   }
 }
