@@ -29,7 +29,10 @@ export default class EnrollmentController {
   }
   render() {}
 
-  onClickPlan() {}
+  onClickPlan(event, id) {
+    event.preventDefault();
+    console.log('?');
+  }
 
   onCreatePlan() {
     if (!this.inputValue) return;
@@ -43,7 +46,11 @@ export default class EnrollmentController {
 
   onEditPlan() {}
 
-  onDeletePlan() {}
+  onDeletePlan(event, id) {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log(id);
+  }
 
   onCreateTodo() {}
   onCheckTodo() {}

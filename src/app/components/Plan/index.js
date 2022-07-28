@@ -20,7 +20,7 @@ function Plan(props) {
   const Button = () => {
     return View.createView(
       'div',
-      { class: 'btn add-plan', click: onCreate },
+      { class: 'add-plan', click: onCreate },
       'ADD'
     );
   };
@@ -55,16 +55,12 @@ function Plan(props) {
       {
         class: `plan-item ${id === activeId && 'active-plan'}`,
         'data-id': id,
-        click: onClick
+        click: e => onClick(e, id)
       },
       View.createView('div', { class: 'plan-title' }, title),
-      View.createView('div', {
-        class: 'icon edit-plan-icon',
-        click: e => onEdit(e, id)
-      }),
-      View.createView('div', {
-        class: 'icon delete-plan-icon',
-        click: onDelete
+      View.createView('i', {
+        class: 'icon-minus',
+        click: e => onDelete(e, id)
       })
     );
   };

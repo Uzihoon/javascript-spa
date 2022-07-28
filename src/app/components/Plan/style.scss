@@ -57,11 +57,20 @@
       overflow: auto;
 
       .plan-item {
-        padding: 15px 3px;
+        padding: 15px 7px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         cursor: pointer;
         &:hover {
           background-color: #555555;
           transition: all 0.2s;
+        }
+
+        i {
+          color: #fff;
+          font-size: 1.2em;
+          cursor: pointer;
         }
       }
 
