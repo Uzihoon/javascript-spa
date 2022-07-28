@@ -1,7 +1,7 @@
 import createElement from './createElement';
 import compareElement from './compareElement';
 
-export default function reRender(selector, prev, next, index = 0) {
+export default function reRender(selector, prev, next, targetId) {
   const parent = document.querySelector(selector);
 
   if (!parent) return;
@@ -14,7 +14,11 @@ export default function reRender(selector, prev, next, index = 0) {
     parent.removeChild(parent.childNodes[index]);
   } else if (compareElement(prev, next)) {
     // Rerender element
-    parent.replaceChild(createElement(next), parent.childNodes[index]);
+    const prevElement = [...parent.childNodes].find(
+      node => node.getAttribute('id') === targetId
+    );
+    if (!prevElement) return;
+    parent.replaceChild(createElement(next), prevElement);
   } else if (next.type) {
     [...Array(Math.max(next.children, length, prev.children.length))].forEach(
       (_, i) => {
